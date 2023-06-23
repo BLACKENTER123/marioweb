@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2021 a las 18:33:23
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Tiempo de generación: 23-06-2023 a las 22:46:06
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,7 @@ CREATE TABLE `categories` (
   `views_category` int(11) NOT NULL DEFAULT 0,
   `date_created_category` date DEFAULT NULL,
   `date_updated_category` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `categories`
@@ -49,7 +49,9 @@ INSERT INTO `categories` (`id_category`, `name_category`, `title_list_category`,
 (3, 'Home, Garden and Kitchen', '[\"Home\",\"Garden\",\"Kitchen\"]', 'home-kitchen', '4.jpg', 'icon-lampshade', 69, '2020-07-14', '2020-07-14 05:00:00'),
 (4, 'Health and Beauty', '[\"Health\",\"Beauty\"]', 'health-beauty', '5.jpg', 'icon-heart-pulse', 68, '2020-07-14', '2020-07-14 05:00:00'),
 (5, 'Jewelry and Watches', '[\"Jewelry\",\"Watches\"]', 'jewelry-watches', '6.jpg', 'icon-diamond2', 30, '2020-07-14', '2020-07-14 05:00:00'),
-(6, 'Computer and Technology', '[\"Computer\",\"Technology\"]', 'computer-technology', '3.jpg', 'icon-desktop', 92, '2020-07-14', '2020-07-14 05:00:00');
+(6, 'Computer and Technology', '[\"Computer\",\"Technology\"]', 'computer-technology', '3.jpg', 'icon-desktop', 92, '2020-07-14', '2020-07-14 05:00:00'),
+(7, 'Bebestible', '[\"Bebidas\", \"Jugos\", \"Aguas\"]', 'bebestibles', '7.jpg', 'icon-bebestible', 0, '2023-06-23', '2023-06-23 20:24:43'),
+(8, 'Comida', '[\"Snacks\", \"Galletas\", \"Dulces\"]', 'comida', '8.jpg', 'icon-comida', 0, '2023-06-23', '2023-06-23 20:27:18');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,7 @@ CREATE TABLE `disputes` (
   `date_answer_dispute` date DEFAULT NULL,
   `date_created_dispute` date DEFAULT NULL,
   `date_updated_dispute` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `disputes`
@@ -92,7 +94,7 @@ CREATE TABLE `messages` (
   `date_answer_message` date DEFAULT NULL,
   `date_created_message` date DEFAULT NULL,
   `date_updated_message` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `messages`
@@ -125,7 +127,7 @@ CREATE TABLE `orders` (
   `status_order` text DEFAULT NULL,
   `date_created_order` date DEFAULT NULL,
   `date_updated_order` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `orders`
@@ -182,7 +184,7 @@ CREATE TABLE `products` (
   `views_product` int(11) DEFAULT NULL,
   `date_created_product` date DEFAULT NULL,
   `date_updated_product` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -262,7 +264,7 @@ CREATE TABLE `sales` (
   `status_sale` text DEFAULT NULL,
   `date_created_sale` date DEFAULT NULL,
   `date_updated_sale` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `sales`
@@ -304,7 +306,7 @@ CREATE TABLE `stores` (
   `products_store` text DEFAULT NULL,
   `date_created_store` date DEFAULT NULL,
   `date_updated_store` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `stores`
@@ -336,7 +338,7 @@ CREATE TABLE `subcategories` (
   `views_subcategory` int(11) NOT NULL DEFAULT 0,
   `date_created_subcategory` date DEFAULT NULL,
   `date_updated_subcategory` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `subcategories`
@@ -389,7 +391,13 @@ INSERT INTO `subcategories` (`id_subcategory`, `id_category_subcategory`, `title
 (44, 6, 'Computer', 'Audio and Video', 'audio-video', 'audio-video.jpg', 0, '2020-07-14', '2020-08-04 16:10:11'),
 (45, 6, 'Technology', 'Smartphones', 'smartphones', 'smartphones.jpg', 0, '2020-07-14', '2020-08-04 16:10:11'),
 (46, 6, 'Technology', 'Tablets', 'tablets', 'tablets.jpg', 0, '2020-07-14', '2020-08-04 16:10:11'),
-(47, 6, 'Technology', 'Wireless Speaker', 'wireless-speaker', 'wireless-speaker.jpg', 0, '2020-07-14', '2020-08-04 16:10:11');
+(47, 6, 'Technology', 'Wireless Speaker', 'wireless-speaker', 'wireless-speaker.jpg', 0, '2020-07-14', '2020-08-04 16:10:11'),
+(48, 7, 'Bebestibles', 'Bebida', 'bebidas', 'bebidas.jpg', 0, '2023-06-23', '2023-06-23 20:37:23'),
+(49, 7, 'Bebestibles', 'Jugos', 'jugos', 'jugos.jpg', 0, '2023-06-23', '2023-06-23 20:37:23'),
+(50, 7, 'Bebestibles', 'Aguas', 'aguas', 'aguas.jpg', 0, '2023-06-23', '2023-06-23 20:37:23'),
+(51, 8, 'Comida', 'Snacks', 'snacks', 'snacks.jpg', 0, '2023-06-23', '2023-06-23 20:42:36'),
+(52, 8, 'Comida', 'Galletas', 'galletas', 'galletas.jpg', 0, '2023-06-23', '2023-06-23 20:42:36'),
+(53, 8, 'Comida', 'Dulces', 'dulces', 'dulces.jpg', 0, '2023-06-23', '2023-06-23 20:42:36');
 
 -- --------------------------------------------------------
 
@@ -416,7 +424,7 @@ CREATE TABLE `users` (
   `wishlist_user` text DEFAULT NULL,
   `date_created_user` date DEFAULT NULL,
   `date_updated_user` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -496,7 +504,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `disputes`
@@ -538,7 +546,7 @@ ALTER TABLE `stores`
 -- AUTO_INCREMENT de la tabla `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id_subcategory` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_subcategory` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
